@@ -1,0 +1,4 @@
+{
+  "packages": ["shell", "dashboard", "order", "sales", "settings"],
+  "version": "0.0.0"
+}
