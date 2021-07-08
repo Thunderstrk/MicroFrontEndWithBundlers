@@ -10,8 +10,10 @@ import {
   Typography,
 } from "@material-ui/core";
 import { orders } from "../data";
+import { useAlertContext } from "shell/useAlert";
 
 export default function RecentOrdersWidget() {
+  const alertContext = useAlertContext();
   return (
     <Box display="flex" flexDirection="column" flex={1}>
       <Typography component="h2" variant="h6" color="primary" gutterBottom>
@@ -42,7 +44,9 @@ export default function RecentOrdersWidget() {
         </Table>
       </Box>
       <Box mt={3}>
-        <Button color="primary">See more orders</Button>
+        <Button color="primary" onClick={() => {
+          alertContext.handleOpen('No more orders')
+        }}>See more orders</Button>
       </Box>
     </Box>
   );

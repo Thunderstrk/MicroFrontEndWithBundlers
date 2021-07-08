@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles, CircularProgress, Typography } from "@material-ui/core";
 const Shell = React.lazy(() => import("shell/Shell"));
 
+import OrderPage from "./OrderPage"
+
 function App() {
   return (
     <React.Suspense fallback={<LoadingShell />}>

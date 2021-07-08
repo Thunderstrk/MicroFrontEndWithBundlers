@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Grid, makeStyles } from "@material-ui/core";
 import { useServiceContext } from "shell/Service";
 import Widget from "./components/Widget";
+import { useCookie } from "shell/useCookie";
 const RecentOrders = React.lazy(() => import("order/RecentOrdersWidget"));
 const SalesDeposits = React.lazy(() => import("sales/DepositsWidget"));
 const SalesToday = React.lazy(() => import("sales/TodayWidget"));
@@ -22,6 +23,12 @@ const useStyles = makeStyles((theme) => ({
 const DashboardPage = () => {
   const classes = useStyles();
   const serviceContext = useServiceContext();
+  const { cookie } = useCookie(
+    "@micro-frontend-poc/appdrawer/open"
+  );
+
+  console.log("drawer", cookie)
+
   React.useEffect(() => {
     serviceContext.setService({ title: "Dashboard" });
   }, []);

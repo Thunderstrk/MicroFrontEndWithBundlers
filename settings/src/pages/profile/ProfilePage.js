@@ -3,6 +3,7 @@ import React from "react";
 import InputLabel from "@material-ui/core/InputLabel";
 import { Container, Grid, makeStyles, Typography } from "@material-ui/core";
 import { useServiceContext } from "shell/Service";
+import { useAlertContext } from "shell/useAlert";
 
 // core components
 import GridItem from "./components/Grid/GridItem.js";
@@ -58,6 +59,8 @@ const useStyles = makeStyles((theme) => ({
 export default function UserProfile() {
   const classes = useStyles();
   const serviceContext = useServiceContext();
+  const alertContext = useAlertContext();
+
   React.useEffect(() => {
     serviceContext.setService({ title: "Profile" });
   }, []);
@@ -182,7 +185,9 @@ export default function UserProfile() {
                 </CardBody>
 
                 <CardFooter>
-                  <Button color="primary">Update Profile</Button>
+                  <Button color="primary" onClick={() => {
+                    alertContext.handleOpen('Profile updated')
+                  }}>Update Profile</Button>
                 </CardFooter>
               </Card>
             </GridItem>

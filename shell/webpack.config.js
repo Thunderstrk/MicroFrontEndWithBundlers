@@ -42,6 +42,8 @@ module.exports = {
       exposes: {
         "./Shell": "./src/Shell",
         "./Service": "./src/Service",
+        "./useAlert": "./src/components/Alert/useAlert",
+        "./useCookie": "./src/hooks/useCookie",
       },
       shared: [
         {
@@ -59,6 +61,8 @@ module.exports = {
         },
         // Workaround explaination: https://www.youtube.com/watch?v=-LNcpralkjM&t=540
         "./src/Service",
+        "./src/hooks/useCookie",
+        "./src/components/Alert/useAlert"
       ],
     }),
     new HtmlWebpackPlugin({

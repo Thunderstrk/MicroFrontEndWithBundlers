@@ -6,7 +6,8 @@ import Header from "./components/Header";
 import React from "react";
 import Router from "./Router";
 import { ServiceProvider } from "./Service";
-import { useDrawer } from './hooks'
+import { useDrawer } from './hooks';
+import Alert from './components/Alert';
 
 export default function Shell () {
   const drawer = useDrawer();
@@ -16,9 +17,11 @@ export default function Shell () {
       <BrowserRouter>
         <Viewport>
           <Box display="flex" flex={1}>
-            <Header drawer={drawer} />
-            <Navigation drawer={drawer} />
-            <Router/>
+            <Alert>
+              <Header drawer={drawer} />
+              <Navigation drawer={drawer} />
+              <Router/>
+            </Alert>
           </Box>
         </Viewport>
       </BrowserRouter>
